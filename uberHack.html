@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uber Hack</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+        }
+        #image_phone_size{
+            object-fit: cover;
+            object-position: center;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px #ccc;
+            transition: all 0.5s ease-in-out;
+            max-width: 100%;
+            max-height: 100%;
+        }
+        #client {
+            position: absolute;
+            top: 526px;
+            left: 46px;
+            font-weight: bold;
+            font-size: 25px;
+        }
+        #command{
+            position: absolute;
+            top: 577px;
+            left: 50px;
+            font-size: 20px;
+        }
+
+        #clickableArea {
+            position: absolute;
+            width: 397px;
+            height: 76px;
+            top: 695px;
+            left: 54px;
+        }
+        .loadersmall{
+            border: 5px solid #f3f3f3;
+            -webkit-animation: spin 1s linear infinite;
+            animation: spin 1s linear infinite;
+            border-top: 5px solid #555;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+    <script>
+function generateOutput() {
+    var clientName = document.getElementById("clientName").value;
+    var commandId = document.getElementById("commandId").value;
+    var output = document.getElementById("client");
+    output.innerHTML = clientName;
+    var output = document.getElementById("command");
+    output.innerHTML = commandId.toUpperCase();
+    // hide div with id "input"
+    document.getElementById("input").style.display = "none";
+    // show div with id "outputImage"
+    document.getElementById("outputImage").style.display = "block";
+
+}
+
+function validateComande() {
+    // unhide div with id "loadingImage"
+    document.getElementById("outputImage").style.display = "none";
+    document.getElementById("lastVideo").style.display = "block";
+    var video = document.getElementById("myVideo");
+    video.muted = false;
+    video.play();
+
+}
+    </script>
+</head>
+
+<body>
+    <div id="input">
+        <h2>Client Name</h2>
+        <textarea name="clientName" id="clientName" cols="30" rows="10">Bakar L.</textarea>
+        <h2>CommandId</h2>
+        <textarea name="commandId" id="commandId" cols="30" rows="10" value="DAEB7">06452</textarea>
+        <button id="submit" onclick="generateOutput()">Submit</button>
+    </div>
+    <div id="outputImage" style="display: none;">
+        <img src="img/uberHack.png" width="480" height="1000"  id="image_phone_size" alt="Uber Hack">
+        <p id="client"></p>
+        <p id="command"></p>
+        <div id="clickableArea" onclick="validateComande();"></div>
+    </div>
+    <div id="lastVideo" style="display: none;">
+        <video id="myVideo">
+            <source src="img/cadered_RjrhRagr.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div id="loadingImage" class="loadersmall" style="display: none;"></div>
+</body>
+</html>
